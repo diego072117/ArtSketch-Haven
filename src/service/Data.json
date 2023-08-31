@@ -1,0 +1,17 @@
+{
+    "drawings": [
+      { "name": "Spider Man", "price": 25.99 },
+      { "name": "Iron Man", "price": 18.75 },
+      { "name": "Capitan America", "price": 32.50 },
+      { "name": "Dead Pool", "price": 12.99 },
+      { "name": "Diego", "price": 28.00 },
+      { "name": "Chip", "price": 21.49 },
+      { "name": "Manchas", "price": 14.25 },
+      { "name": "Lobo", "price": 9.99 }
+    ],
+    "users": [
+      { "username": "Admin", "password": "12345678Aa." },
+      { "username": "Usuario", "password": "12345678Aa." }
+    ]
+  }
+  
