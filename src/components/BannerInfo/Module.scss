@@ -1,0 +1,35 @@
+.container-bannerinfo {
+  background-color: #f89cab;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 5em;
+
+  & .info-bannerinfo {
+    color: #fff;
+    width: 100%;
+    max-width: 43em;
+
+    & .title-bannerinfo {
+      font-size: 56px;
+      font-weight: bold;
+      margin-bottom: 0.5em;
+    }
+    & .text-bannerinfo {
+      margin-bottom: 3em;
+    }
+    & .button-bannerinfo{
+        text-decoration: none;
+        padding: 10px 40px;
+        background-color: #db4566;
+        color: #ffffff;
+        border-radius: 5px;
+    }
+  }
+
+  & .image-bannerinfo {
+    & img {
+      width: 20em;
+    }
+  }
+}
