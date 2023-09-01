@@ -18,12 +18,18 @@
     & .text-bannerinfo {
       margin-bottom: 3em;
     }
-    & .button-bannerinfo{
-        text-decoration: none;
-        padding: 10px 40px;
-        background-color: #db4566;
-        color: #ffffff;
-        border-radius: 5px;
+    & .button-bannerinfo {
+      text-decoration: none;
+      padding: 10px 40px;
+      background-color: #db4566;
+      border: 1px solid #db4566;
+      color: #ffffff;
+      border-radius: 5px;
+      transition: all 0.3s;
+
+      &:hover {
+        background-color: transparent;
+      }
     }
   }
 

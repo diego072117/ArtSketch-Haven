@@ -1,4 +1,5 @@
 import { BannerInfo } from "../../components/BannerInfo/BannerInfo";
+import { BannerProducts } from "../../components/BannerProducts/BannerProducts";
 import "./Module.scss";
 
 export const Home = () => {
@@ -32,6 +33,7 @@ export const Home = () => {
           </div>
         </div>
       </div>
+      <BannerProducts />
     </>
   );
 };
