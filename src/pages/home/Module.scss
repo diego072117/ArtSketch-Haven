@@ -1,0 +1,38 @@
+.benefits {
+  text-align: center;
+  margin: 5em 0em;
+
+  & .title-cards-home{
+    margin-bottom: 1em;
+  }
+
+  & .container-benefits {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    & .card-benefits {
+      width: 15em;
+      margin: 1em;
+      text-align: center;
+      background-color: #f9f8f7;
+      padding: 35px;
+      border-radius: 5px;
+
+      & .icon-benefits{
+        font-size: 30px;
+        color: #320b57;
+      }
+
+      & h5 {
+        font-size: 1.1em;
+        font-weight: 500;
+      }
+
+      & p{
+        font-size: 15px;
+      }
+    }
+  }
+}
