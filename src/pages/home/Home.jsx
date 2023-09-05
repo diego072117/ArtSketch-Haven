@@ -1,5 +1,6 @@
 import { BannerInfo } from "../../components/BannerInfo/BannerInfo";
 import { BannerProducts } from "../../components/BannerProducts/BannerProducts";
+import { Footer } from "../../components/Footer/Footer";
 import "./Module.scss";
 
 export const Home = () => {
@@ -34,6 +35,7 @@ export const Home = () => {
         </div>
       </div>
       <BannerProducts />
+      <Footer/>
     </>
   );
 };
