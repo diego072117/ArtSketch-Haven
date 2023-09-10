@@ -1,0 +1,43 @@
+.container-section-products {
+  text-align: center;
+
+  .container-cards-products {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .card-product {
+      margin: 1em;
+      background-color: #eeeeee;
+      width: 15em;
+      height: 20em;
+      border-radius: 10px;
+      margin-bottom: 5em;
+
+      .image-product {
+        width: 100%;
+        height: 80%;
+        object-fit: cover;
+
+        img {
+          border-radius: 10px;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .info-product {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 1em;
+        font-weight: 500;
+
+        .price {
+          color: #db4f66;
+        }
+      }
+    }
+  }
+}

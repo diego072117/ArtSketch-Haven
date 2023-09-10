@@ -34,8 +34,11 @@ export const Home = () => {
           </div>
         </div>
       </div>
-      <BannerProducts />
-      <Footer/>
+      <BannerProducts
+        title="DISCOVER OUR FEATURED"
+        title2="TREASURES NOW"
+        showButtons={true}
+      />
     </>
   );
 };
