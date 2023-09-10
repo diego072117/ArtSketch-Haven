@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { BannerProducts } from "../../components/BannerProducts/BannerProducts";
 import { drawings } from "../../service/Data.json";
 import "./Module.scss";
@@ -29,6 +30,7 @@ export const Products = () => {
                 </p>
                 <p className="price">${drawing.price}</p>
               </div>
+              <Link to={`/details-product/${drawing.id}`}>detalles</Link>
             </div>
           ))}
         </div>
