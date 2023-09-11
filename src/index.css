@@ -12,3 +12,19 @@ h1, h2, h3, h4, h5, h6 {
 p {
     margin: 0;
 }
+
+.price {
+    color: #db4f66;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #888; 
+  }

@@ -18,7 +18,11 @@ export const Products = () => {
         <h1>LATEST PRODUCTS</h1>
         <div className="container-cards-products">
           {drawings.map((drawing) => (
-            <div className="card-product" key={drawing.id}>
+            <Link
+              to={`/details-product/${drawing.id}`}
+              className="card-product"
+              key={drawing.id}
+            >
               <div className="image-product">
                 <img src={drawing.img} alt="" />
               </div>
@@ -30,8 +34,7 @@ export const Products = () => {
                 </p>
                 <p className="price">${drawing.price}</p>
               </div>
-              <Link to={`/details-product/${drawing.id}`}>detalles</Link>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

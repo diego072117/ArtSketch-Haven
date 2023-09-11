@@ -13,6 +13,7 @@
       height: 20em;
       border-radius: 10px;
       margin-bottom: 5em;
+      text-decoration: none;
 
       .image-product {
         width: 100%;
@@ -33,10 +34,7 @@
         align-items: center;
         margin: 1em;
         font-weight: 500;
-
-        .price {
-          color: #db4f66;
-        }
+        color: #000;
       }
     }
   }
