@@ -15,7 +15,6 @@ export const Login = () => {
     );
 
     if (validateUser) {
-      console.log("entre al if de usuario validado");
       if (validateUser.role === "admin") {
         navigate("/dashAdmin");
       } else if (validateUser.role === "user") {
