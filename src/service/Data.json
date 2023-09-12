@@ -14,8 +14,8 @@
 
     ],
     "users": [
-      { "username": "Admin", "password": "12345678Aa." },
-      { "username": "Usuario", "password": "12345678Aa." }
+      { "username": "Admin", "password": "12345678Aa.", "role": "admin" },
+      { "username": "Usuario", "password": "12345678Aa.", "role": "user" }
     ]
   }
   
