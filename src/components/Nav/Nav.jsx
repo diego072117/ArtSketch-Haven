@@ -9,7 +9,7 @@ export const Nav = () => {
       <Link to="/" className="item-nav">TESTIMONIAL</Link>
       <Link to="/" className="item-nav">CONTACT US</Link>
       <div className="user-options">
-        <Link to="/" className="item-nav">
+        <Link to="/login" className="item-nav">
             <i className="fa fa-user" aria-hidden="true"></i>
              LOGIN
              <i className="fa fa-shopping-bag" aria-hidden="true"></i>
