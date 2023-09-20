@@ -1,4 +1,4 @@
-import { drawings } from "../../service/Data.json";
+import { products } from "../../service/Data.json";
 import { useParams } from "react-router-dom";
 import "./Module.scss";
 import { ScrollToTop } from "../../hooks/ScrollToTop";
@@ -6,7 +6,7 @@ import { ScrollToTop } from "../../hooks/ScrollToTop";
 export const DetailsProduct = () => {
   const { id } = useParams();
 
-  const product = drawings.find((drawings) => drawings.id === parseInt(id));
+  const product = products.find((products) => products.id === parseInt(id));
 
   return (
     <>

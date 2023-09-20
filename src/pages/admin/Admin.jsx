@@ -6,12 +6,10 @@ import { showAllProducts } from "../../store/products/slice"; // Asegúrate de i
 export const Admin = () => {
   const products = useSelector((state) => state.products.products);
   //const visibleProducts = products.filter((product) => product.isVisible);
-  const { removeProduct } = useProductsActions(); // No necesitas showAllProducts aquí
-
+  const { removeProduct, showAll } = useProductsActions();
   useEffect(() => {
-    // Llama a showAllProducts directamente desde el useEffect
-    showAllProducts();
-  }, [showAllProducts]);
+    showAll()
+  }, [showAll]);
 
   return (
     <>

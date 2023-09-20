@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { BannerProducts } from "../../components/BannerProducts/BannerProducts";
-import { useSelector, useDispatch } from "react-redux";
-import { showAllProducts } from "../../store/products/slice";
+import { useSelector } from "react-redux";
+import { useProductsActions } from "../../hooks/useProductsActions";
 import { useEffect } from "react";
 import "./Module.scss";
 
@@ -10,15 +10,15 @@ const MAX_CHARACTERS_NAME = 11;
 
 export const Products = () => {
   const products = useSelector((state) => state.products.products);
-  const dispatch = useDispatch();
 
   // Mostrar todos los productos al montar el componente
+  const { showAll } = useProductsActions();
   useEffect(() => {
-    dispatch(showAllProducts());
-  }, [dispatch]);
+    showAll();
+  }, [showAll]);
 
-   // Filtrar solo los productos con isVisible en true
-   //const visibleProducts = products.filter((product) => product.isVisible);
+  // Filtrar solo los productos con isVisible en true
+  //const visibleProducts = products.filter((product) => product.isVisible);
   return (
     <>
       <BannerProducts

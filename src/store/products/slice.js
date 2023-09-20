@@ -1,8 +1,8 @@
   import { createSlice } from "@reduxjs/toolkit";
-  import { drawings } from "../../service/Data.json"
+  import { products } from "../../service/Data.json"
 
   const persistedState = localStorage.getItem("__redux__state__");
-  const PRODUCTS_DEFAULT = persistedState ? JSON.parse(persistedState).products : drawings;
+  const PRODUCTS_DEFAULT = persistedState ? JSON.parse(persistedState).products : products;
 
   export const productsSlice = createSlice({
     name: "products",
@@ -14,6 +14,7 @@
         state.products.forEach((product) => {
           product.isVisible = true;
         }); 
+     
       },
       deleteProduct: (state, action) => {
         const productId = action.payload;

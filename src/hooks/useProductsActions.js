@@ -15,7 +15,6 @@ export const useProductsActions = () => {
 
 
   const toggleVisibility = (productId) => {
-    console.log("llegie a ejecutar");
     dispatch(toggleProductVisibility(productId));
   };
 
