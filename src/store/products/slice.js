@@ -1,7 +1,8 @@
   import { createSlice } from "@reduxjs/toolkit";
   import { drawings } from "../../service/Data.json"
 
-  const PRODUCTS_DEFAULT = drawings
+  const persistedState = localStorage.getItem("__redux__state__");
+  const PRODUCTS_DEFAULT = persistedState ? JSON.parse(persistedState).products : drawings;
 
   export const productsSlice = createSlice({
     name: "products",
@@ -13,6 +14,10 @@
         state.products.forEach((product) => {
           product.isVisible = true;
         }); 
+      },
+      deleteProduct: (state, action) => {
+        const productId = action.payload;
+        state.products = state.products.filter((product) => product.id !== productId);
       },
       toggleProductVisibility: (state, action) => {
         const productId = action.payload;
@@ -26,4 +31,4 @@
 
   export default productsSlice.reducer;
 
-  export const { showAllProducts, toggleProductVisibility } = productsSlice.actions;
+  export const { showAllProducts, deleteProduct, toggleProductVisibility } = productsSlice.actions;
