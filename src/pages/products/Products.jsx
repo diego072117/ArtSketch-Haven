@@ -1,11 +1,24 @@
 import { Link } from "react-router-dom";
 import { BannerProducts } from "../../components/BannerProducts/BannerProducts";
-import { drawings } from "../../service/Data.json";
+import { useSelector, useDispatch } from "react-redux";
+import { showAllProducts } from "../../store/products/slice";
+import { useEffect } from "react";
 import "./Module.scss";
+
 
 const MAX_CHARACTERS_NAME = 11;
 
 export const Products = () => {
+  const products = useSelector((state) => state.products.products);
+  const dispatch = useDispatch();
+
+  // Mostrar todos los productos al montar el componente
+  useEffect(() => {
+    dispatch(showAllProducts());
+  }, [dispatch]);
+
+   // Filtrar solo los productos con isVisible en true
+   //const visibleProducts = products.filter((product) => product.isVisible);
   return (
     <>
       <BannerProducts
@@ -17,22 +30,22 @@ export const Products = () => {
       <div className="container-section-products">
         <h1>LATEST PRODUCTS</h1>
         <div className="container-cards-products">
-          {drawings.map((drawing) => (
+          {products.map((product) => (
             <Link
-              to={`/details-product/${drawing.id}`}
+              to={`/details-product/${product.id}`}
               className="card-product"
-              key={drawing.id}
+              key={product.id}
             >
               <div className="image-product">
-                <img src={drawing.img} alt="" />
+                <img src={product.img} alt="" />
               </div>
               <div className="info-product">
                 <p>
-                  {drawing.name.length > MAX_CHARACTERS_NAME
-                    ? `${drawing.name.slice(0, MAX_CHARACTERS_NAME)}...`
-                    : drawing.name}
+                  {product.name.length > MAX_CHARACTERS_NAME
+                    ? `${product.name.slice(0, MAX_CHARACTERS_NAME)}...`
+                    : product.name}
                 </p>
-                <p className="price">${drawing.price}</p>
+                <p className="price">${product.price}</p>
               </div>
             </Link>
           ))}
