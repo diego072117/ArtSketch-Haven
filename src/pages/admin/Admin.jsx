@@ -17,7 +17,7 @@ export const Admin = () => {
 
   useEffect(() => {
     dispatch(showAllProducts());
-  }, [toggleVisibilityCallback]);
+  }, [dispatch/*toggleVisibilityCallback*/]);
 
   return (
     <>
@@ -32,7 +32,7 @@ export const Admin = () => {
             </tr>
           </thead>
           <tbody>
-            {visibleProducts.map((product) => (
+            {products.map((product) => (
               <tr key={product.id}>
                 <td>{product.id}</td>
                 <td>{product.name}</td>
