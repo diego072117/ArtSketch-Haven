@@ -1,23 +1,15 @@
-import { useSelector, useDispatch } from "react-redux";
-import { showAllProducts } from "../../store/products/slice";
-import { useCallback, useEffect } from "react";
-import { toggleProductVisibility } from "../../store/products/slice";
+import { useSelector } from "react-redux";
+import { useProductsActions } from "../../hooks/useProductsActions";
+import { useEffect } from "react";
+import { showAllProducts } from "../../store/products/slice"; // Asegúrate de importar showAllProducts desde el slice
 
 export const Admin = () => {
   const products = useSelector((state) => state.products.products);
-  const visibleProducts = products.filter((product) => product.isVisible);
-  const dispatch = useDispatch();
-
-  // Función para manejar el clic en el botón y cambiar la visibilidad del producto
-  const handleToggleVisibility = (productId) => {
-    dispatch(toggleProductVisibility(productId));
-  };
-
-  const toggleVisibilityCallback = useCallback(handleToggleVisibility, []);
-
+  //const visibleProducts = products.filter((product) => product.isVisible);
+  const { removeProduct, showAll } = useProductsActions();
   useEffect(() => {
-    dispatch(showAllProducts());
-  }, [toggleVisibilityCallback]);
+    showAll()
+  }, [showAll]);
 
   return (
     <>
@@ -32,13 +24,13 @@ export const Admin = () => {
             </tr>
           </thead>
           <tbody>
-            {visibleProducts.map((product) => (
+            {products.map((product) => (
               <tr key={product.id}>
                 <td>{product.id}</td>
                 <td>{product.name}</td>
                 <td>{product.price}</td>
                 <td>
-                  <button onClick={() => handleToggleVisibility(product.id)}>
+                  <button onClick={() => removeProduct(product.id)}>
                     Agotado
                   </button>
                 </td>
