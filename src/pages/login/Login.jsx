@@ -1,33 +1,34 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { users } from "../../service/Data.json";
-import "./Module.scss";
 import Swal from "sweetalert2";
+import "./Module.scss";
+import { useAuthActions } from "../../hooks/useAuthActions";
 
 export const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const { login } = useAuthActions();
 
   const handleLogin = () => {
-    const validateUser = users.find(
-      (user) => user.username === username && user.password === password
-    );
+    // Llama a la función login con las credenciales proporcionadas
+    login({ username, password });
+  };
 
-    if (validateUser) {
-      if (validateUser.role === "admin") {
+  // Obtener el estado autenticado y el usuario desde el estado global
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const user = useSelector((state) => state.auth.user);
+  useEffect(() => {
+    if (isAuthenticated && user) {
+      if (user.role === "admin") {
         navigate("/dashAdmin");
-      } else if (validateUser.role === "user") {
+      } else if (user.role === "user") {
         navigate("/products");
       }
-    } else {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Credenciales incorrectas!",
-      });
     }
-  };
+  }, [isAuthenticated, user]);
 
   return (
     <>

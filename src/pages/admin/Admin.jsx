@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { useProductsActions } from "../../hooks/useProductsActions";
 import { useEffect } from "react";
-import { showAllProducts } from "../../store/products/slice"; // Asegúrate de importar showAllProducts desde el slice
+//import { showAllProducts } from "../../store/products/slice";
 
 export const Admin = () => {
   const products = useSelector((state) => state.products.products);
