@@ -84,12 +84,12 @@
   "users":[
      {
         "username":"Admin",
-        "password":"12345678Aa.",
+        "password":"12345678aA.",
         "role":"admin"
      },
      {
         "username":"Usuario",
-        "password":"12345678Aa.",
+        "password":"12345678aA.",
         "role":"user"
      }
   ]

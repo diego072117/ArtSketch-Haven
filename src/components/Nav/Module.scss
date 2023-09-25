@@ -5,10 +5,13 @@
     align-items: center;
     border-radius: 15px 15px 0 0;
     & .item-nav{
+        background: transparent;
+        border: none;
         margin: 1em;
         text-decoration: none;
         color: #514f4f;
         text-align: center;
+        cursor: pointer;
     }
 
     & .user-options{

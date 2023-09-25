@@ -1,11 +1,9 @@
 import { useSelector } from "react-redux";
 import { useProductsActions } from "../../hooks/useProductsActions";
 import { useEffect } from "react";
-import { showAllProducts } from "../../store/products/slice"; // Asegúrate de importar showAllProducts desde el slice
 
 export const Admin = () => {
   const products = useSelector((state) => state.products.products);
-  //const visibleProducts = products.filter((product) => product.isVisible);
   const { removeProduct, showAll } = useProductsActions();
   useEffect(() => {
     showAll()
