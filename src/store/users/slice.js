@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { users } from "../../service/Data.json";
+import Swal from "sweetalert2";
 
 const initialState = {
     isAuthenticated: false,
@@ -22,6 +23,11 @@ export const authSlice = createSlice({
           state.user = validUser;
         } else {
           // Si las credenciales no son válidas, mantén el estado de autenticación como falso y borra la información del usuario
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Credenciales incorrectas!",
+          });
           state.isAuthenticated = false;
           state.user = null;
         }

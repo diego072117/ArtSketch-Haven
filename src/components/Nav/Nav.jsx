@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import "./Module.scss";
 
 export const Nav = () => {
-  const user = useSelector((state) => state.auth.user);
+  //const user = useSelector((state) => state.auth.user);
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const navigate = useNavigate();
   const { logout } = useAuthActions();
@@ -20,7 +20,7 @@ export const Nav = () => {
     }
   }, [isAuthenticated]);
 
-  console.log(user);
+
   return (
     <nav className="container-nav">
       <Link to="/" className="item-nav">
