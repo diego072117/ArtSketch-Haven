@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { users } from "../../service/Data.json";
-import Swal from "sweetalert2";
-import "./Module.scss";
 import { useAuthActions } from "../../hooks/useAuthActions";
+import "./Module.scss";
 
 export const Login = () => {
   const [username, setUsername] = useState("");
