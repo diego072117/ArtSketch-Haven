@@ -79,18 +79,100 @@
         "img":"https://i.pinimg.com/236x/39/b5/ba/39b5babad8c251b35207844064e89330.jpg",
         "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam volutpat purus vitae urna tristique, vel cursus nunc vulputate. Maecenas in tristique justo. Curabitur a massa at nunc varius vestibulum. Sed auctor, quam in convallis posuere, elit odio auctor neque, nec efficitur libero dolor vel ex. Vivamus ullamcorper nisl a tristique iaculis. Proin vitae justo in urna consequat malesuada.",
         "isVisible": true
-     }
+     },
+     {
+      "id": 11,
+      "name":"Product 11",
+      "price":41.99,
+      "img":"https://i.pinimg.com/564x/d7/c1/bb/d7c1bba2a350a86dc64cd6bf3dc58b65.jpg",
+      "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam volutpat purus vitae urna tristique, vel cursus nunc vulputate. Maecenas in tristique justo. Curabitur a massa at nunc varius vestibulum. Sed auctor, quam in convallis posuere, elit odio auctor neque, nec efficitur libero dolor vel ex. Vivamus ullamcorper nisl a tristique iaculis. Proin vitae justo in urna consequat malesuada.",
+      "isVisible": true
+    },
+    {
+      "id":12,
+      "name":"Product 12",
+      "price":41.99,
+      "img":"https://i.pinimg.com/564x/58/3b/48/583b485e049f8d286950b8c9e458f410.jpg",
+      "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam volutpat purus vitae urna tristique, vel cursus nunc vulputate. Maecenas in tristique justo. Curabitur a massa at nunc varius vestibulum. Sed auctor, quam in convallis posuere, elit odio auctor neque, nec efficitur libero dolor vel ex. Vivamus ullamcorper nisl a tristique iaculis. Proin vitae justo in urna consequat malesuada.",
+      "isVisible": true
+    },
+    {
+      "id":13,
+      "name":"Product 13",
+      "price":41.99,
+      "img":"https://i.pinimg.com/564x/37/71/55/3771551ef63b1184b90c4e9f52139961.jpg",
+      "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam volutpat purus vitae urna tristique, vel cursus nunc vulputate. Maecenas in tristique justo. Curabitur a massa at nunc varius vestibulum. Sed auctor, quam in convallis posuere, elit odio auctor neque, nec efficitur libero dolor vel ex. Vivamus ullamcorper nisl a tristique iaculis. Proin vitae justo in urna consequat malesuada.",
+      "isVisible": true
+    },
+    {
+      "id":14,
+      "name":"Product 14",
+      "price":41.99,
+      "img":"https://i.pinimg.com/564x/ba/9b/22/ba9b22a5e13bbaebe09825524f274f4c.jpg",
+      "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam volutpat purus vitae urna tristique, vel cursus nunc vulputate. Maecenas in tristique justo. Curabitur a massa at nunc varius vestibulum. Sed auctor, quam in convallis posuere, elit odio auctor neque, nec efficitur libero dolor vel ex. Vivamus ullamcorper nisl a tristique iaculis. Proin vitae justo in urna consequat malesuada.",
+      "isVisible": true
+    },
+    {
+      "id":15,
+      "name":"Product 15",
+      "price":41.99,
+      "img":"https://i.pinimg.com/564x/07/ae/ef/07aeef8dd574a914d19f961928b5e420.jpg",
+      "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam volutpat purus vitae urna tristique, vel cursus nunc vulputate. Maecenas in tristique justo. Curabitur a massa at nunc varius vestibulum. Sed auctor, quam in convallis posuere, elit odio auctor neque, nec efficitur libero dolor vel ex. Vivamus ullamcorper nisl a tristique iaculis. Proin vitae justo in urna consequat malesuada.",
+      "isVisible": true
+    },
+    {
+      "id":16,
+      "name":"Product 16",
+      "price":41.99,
+      "img":"https://i.pinimg.com/564x/d0/0c/00/d00c00ee1d6e986e8ab5ffc9e4472512.jpg",
+      "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam volutpat purus vitae urna tristique, vel cursus nunc vulputate. Maecenas in tristique justo. Curabitur a massa at nunc varius vestibulum. Sed auctor, quam in convallis posuere, elit odio auctor neque, nec efficitur libero dolor vel ex. Vivamus ullamcorper nisl a tristique iaculis. Proin vitae justo in urna consequat malesuada.",
+      "isVisible": true
+    },
+    {
+      "id":17,
+      "name":"Product 17",
+      "price":41.99,
+      "img":"https://i.pinimg.com/750x/a7/ce/9b/a7ce9b7b946c80221e98aa495e20baa3.jpg",
+      "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam volutpat purus vitae urna tristique, vel cursus nunc vulputate. Maecenas in tristique justo. Curabitur a massa at nunc varius vestibulum. Sed auctor, quam in convallis posuere, elit odio auctor neque, nec efficitur libero dolor vel ex. Vivamus ullamcorper nisl a tristique iaculis. Proin vitae justo in urna consequat malesuada.",
+      "isVisible": true
+    },
+    {
+      "id":18,
+      "name":"Product 18",
+      "price":41.99,
+      "img":"https://i.pinimg.com/736x/0c/79/8c/0c798c69559be4003494c25294e5b984.jpg",
+      "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam volutpat purus vitae urna tristique, vel cursus nunc vulputate. Maecenas in tristique justo. Curabitur a massa at nunc varius vestibulum. Sed auctor, quam in convallis posuere, elit odio auctor neque, nec efficitur libero dolor vel ex. Vivamus ullamcorper nisl a tristique iaculis. Proin vitae justo in urna consequat malesuada.",
+      "isVisible": true
+    },
+    {
+      "id":19,
+      "name":"Product 19",
+      "price":41.99,
+      "img":"https://i.pinimg.com/564x/19/f5/d8/19f5d81f895476d0f8c63a1e7cd0ac10.jpg",
+      "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam volutpat purus vitae urna tristique, vel cursus nunc vulputate. Maecenas in tristique justo. Curabitur a massa at nunc varius vestibulum. Sed auctor, quam in convallis posuere, elit odio auctor neque, nec efficitur libero dolor vel ex. Vivamus ullamcorper nisl a tristique iaculis. Proin vitae justo in urna consequat malesuada.",
+      "isVisible": true
+    },
+    {
+      "id":20,
+      "name":"Product 20",
+      "price":41.99,
+      "img":"https://i.pinimg.com/564x/cc/92/90/cc92905f50a49079f06b1d07552446f0.jpg",
+      "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam volutpat purus vitae urna tristique, vel cursus nunc vulputate. Maecenas in tristique justo. Curabitur a massa at nunc varius vestibulum. Sed auctor, quam in convallis posuere, elit odio auctor neque, nec efficitur libero dolor vel ex. Vivamus ullamcorper nisl a tristique iaculis. Proin vitae justo in urna consequat malesuada.",
+      "isVisible": true
+    }
   ],
   "users":[
      {
         "username":"Admin",
         "password":"12345678aA.",
-        "role":"admin"
+        "role":"admin",
+        "avatar": "https://i.pinimg.com/564x/3a/49/ff/3a49ff906cdbd7b5234a60f8e2017cac.jpg"
      },
      {
         "username":"Usuario",
         "password":"12345678aA.",
-        "role":"user"
+        "role":"user",
+        "avatar": "https://i.pinimg.com/564x/5f/c2/cc/5fc2cc3504938dc1456484698334e389.jpg"
      }
   ]
 }
