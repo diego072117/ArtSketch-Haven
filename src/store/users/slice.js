@@ -22,7 +22,7 @@ export const authSlice = createSlice({
           state.isAuthenticated = true;
           state.user = validUser;
         } else {
-          // Si las credenciales no son válidas, mantén el estado de autenticación como falso y borra la información del usuario
+          // Si las credenciales no son válidas
           Swal.fire({
             icon: "error",
             title: "Oops...",

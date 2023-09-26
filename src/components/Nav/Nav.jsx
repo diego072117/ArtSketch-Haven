@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import "./Module.scss";
 
 export const Nav = () => {
-  //const user = useSelector((state) => state.auth.user);
+  const user = useSelector((state) => state.auth.user);
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const navigate = useNavigate();
   const { logout } = useAuthActions();
@@ -16,10 +16,9 @@ export const Nav = () => {
 
   useEffect(() => {
     if (isAuthenticated === false) {
-      navigate("/login");
+      navigate("/");
     }
   }, [isAuthenticated]);
-
 
   return (
     <nav className="container-nav">
@@ -42,8 +41,10 @@ export const Nav = () => {
             <button className="item-nav" onClick={handleLogout}>
               <i className="fa fa-sign-out" aria-hidden="true"></i> LOGOUT
             </button>
-            <i className="fa fa-shopping-bag" aria-hidden="true"></i>
-            <i className="fa fa-search" aria-hidden="true"></i>
+            <div className="info-auth">
+              <img className="img-avatar" src={user.avatar} alt="" />
+              <p className="username">{user.username}</p>
+            </div>
           </>
         ) : (
           <>
