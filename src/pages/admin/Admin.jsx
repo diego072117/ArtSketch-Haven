@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { useProductsActions } from "../../hooks/useProductsActions";
 import { useEffect } from "react";
+import './Module.scss';
 
 export const Admin = () => {
   const products = useSelector((state) => state.products.products);
@@ -11,8 +12,8 @@ export const Admin = () => {
 
   return (
     <>
-      <div>
-        <table>
+      <div className="containter-table">
+        <table className="table-products">
           <thead>
             <tr>
               <th>ID</th>
