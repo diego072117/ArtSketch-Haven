@@ -1,8 +1,13 @@
 import { useDispatch } from "react-redux";
-import { showAllProducts, toggleProductVisibility, deleteProduct } from "../store/products/slice";
+import { showAllProducts, toggleProductVisibility, deleteProduct, addProduct } from "../store/products/slice";
 
 export const useProductsActions = () => {
   const dispatch = useDispatch();
+
+  const newProduct = (product) => {
+    dispatch(addProduct(product));
+  };
+
 
   const showAll = () => {
     dispatch(showAllProducts());
@@ -18,6 +23,6 @@ export const useProductsActions = () => {
     dispatch(toggleProductVisibility(productId));
   };
 
-  return { showAll, toggleVisibility, removeProduct };
+  return { newProduct, showAll, toggleVisibility, removeProduct };
 };
   
