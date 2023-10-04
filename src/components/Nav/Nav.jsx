@@ -28,12 +28,16 @@ export const Nav = () => {
       <Link to="/products" className="item-nav">
         SHOP
       </Link>
-      <Link to="/" className="item-nav">
-        TESTIMONIAL
-      </Link>
-      <Link to="/" className="item-nav">
-        CONTACT US
-      </Link>
+      {isAuthenticated && user.role === "admin" ? (
+        <>
+          <Link to="/dashAdmin" className="item-nav">
+            MANAGE PRODUCTS
+          </Link>
+        </>
+      ) : (
+        <></>
+      )}
+
       <div className="user-options">
         {isAuthenticated ? (
           <>
@@ -42,13 +46,19 @@ export const Nav = () => {
               <i className="fa fa-sign-out" aria-hidden="true"></i> LOGOUT
             </button>
             <div className="info-auth">
-              <img className="img-avatar" src={user?.avatar} alt="" />
-              <p className="username">{user?.username}</p>
+              <img className="img-avatar" src={user.avatar} alt="" />
+              <p className="username">{user.username}</p>
             </div>
           </>
         ) : (
           <>
             {/* Muestra "LOGIN" cuando el usuario no está autenticado */}
+            <Link to="/" className="item-nav">
+              TESTIMONIAL
+            </Link>
+            <Link to="/" className="item-nav">
+              CONTACT US
+            </Link>
             <Link to="/login" className="item-nav">
               <i className="fa fa-user" aria-hidden="true"></i> LOGIN
             </Link>
