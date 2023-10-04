@@ -163,8 +163,8 @@
   ],
   "users":[
      {
-        "username":"a",
-        "password":"1",
+        "username":"Admin",
+        "password":"12345678aA.",
         "role":"admin",
         "avatar": "https://i.pinimg.com/564x/3a/49/ff/3a49ff906cdbd7b5234a60f8e2017cac.jpg"
      },
