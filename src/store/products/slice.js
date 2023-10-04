@@ -14,10 +14,12 @@
         const newProduct = action.payload;
 
         // Asigna un nuevo ID al producto
-        newProduct.id = state.products.length + 1;
+        const id = state.products.length + 1;
+
+        // newProduct.id = state.products.length + 1;
   
         // Agrega el producto al estado de Redux
-        state.products.push(newProduct);
+        state.products.push({id, ...newProduct});
   
         // Actualiza el LocalStorage con los productos actualizados
         localStorage.setItem("__Products__", JSON.stringify({ products: state.products }));
@@ -31,6 +33,7 @@
       deleteProduct: (state, action) => {
         const productId = action.payload;
         state.products = state.products.filter((product) => product.id !== productId);
+        localStorage.setItem("__Products__", JSON.stringify({ products: state.products }));
       },
       toggleProductVisibility: (state, action) => {
         const productId = action.payload;
