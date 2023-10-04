@@ -1,7 +1,7 @@
   import { createSlice } from "@reduxjs/toolkit";
   import { products } from "../../service/Data.json"
 
-  const persistedState = localStorage.getItem("__redux__state__");
+  const persistedState = localStorage.getItem("__Products__");
   const PRODUCTS_DEFAULT = persistedState ? JSON.parse(persistedState).products : products;
 
   export const productsSlice = createSlice({
@@ -10,6 +10,18 @@
       products: PRODUCTS_DEFAULT,
     },  
     reducers: {
+      addProduct: (state, action) => {
+        const newProduct = action.payload;
+
+        // Asigna un nuevo ID al producto
+        newProduct.id = state.products.length + 1;
+  
+        // Agrega el producto al estado de Redux
+        state.products.push(newProduct);
+  
+        // Actualiza el LocalStorage con los productos actualizados
+        localStorage.setItem("__Products__", JSON.stringify({ products: state.products }));
+      },
       showAllProducts: (state) => {
         state.products.forEach((product) => {
           product.isVisible = true;
@@ -32,4 +44,4 @@
 
   export default productsSlice.reducer;
 
-  export const { showAllProducts, deleteProduct, toggleProductVisibility } = productsSlice.actions;
+  export const {addProduct, showAllProducts, deleteProduct, toggleProductVisibility } = productsSlice.actions;

@@ -26,7 +26,7 @@ export const Login = () => {
         navigate("/products");
       }
     }
-  }, [isAuthenticated, user]);
+  }, [isAuthenticated, user,]);
 
   return (
     <>

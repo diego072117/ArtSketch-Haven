@@ -42,8 +42,8 @@ export const Nav = () => {
               <i className="fa fa-sign-out" aria-hidden="true"></i> LOGOUT
             </button>
             <div className="info-auth">
-              <img className="img-avatar" src={user.avatar} alt="" />
-              <p className="username">{user.username}</p>
+              <img className="img-avatar" src={user?.avatar} alt="" />
+              <p className="username">{user?.username}</p>
             </div>
           </>
         ) : (

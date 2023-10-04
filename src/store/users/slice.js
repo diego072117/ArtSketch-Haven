@@ -1,11 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { users } from "../../service/Data.json";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
-const initialState = {
-    isAuthenticated: false,
-    user: null,
-  };
+const authLocal = () => {
+  const auth = localStorage.getItem("__auth__");
+  return auth ? JSON.parse(auth) : { isAuthenticated: false, user: null };
+};
+
+
+const initialState = authLocal()
 
 export const authSlice = createSlice({
   name: "auth",
@@ -19,8 +23,10 @@ export const authSlice = createSlice({
   
         if (validUser) {
           // Almacena la información del usuario en el estado
+     
           state.isAuthenticated = true;
           state.user = validUser;
+          localStorage.setItem("__auth__", JSON.stringify(state));
         } else {
           // Si las credenciales no son válidas
           Swal.fire({
@@ -28,13 +34,13 @@ export const authSlice = createSlice({
             title: "Oops...",
             text: "Credenciales incorrectas!",
           });
-          state.isAuthenticated = false;
-          state.user = null;
+         
         }
       },
     logoutUser: (state) => {
-      // Cuando el usuario cierra sesión, restablece el estado de autenticación y la información del usuario
       state.isAuthenticated = false;
+      state.user = null;
+      localStorage.removeItem("__auth__");
     },
   },
 });
