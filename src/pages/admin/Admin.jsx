@@ -6,8 +6,8 @@ import { Modal } from "../../components/Modal/Modal";
 
 export const Admin = () => {
   const [modalNewProduct, setModalNewProduct] = useState(false);
-  const [editMode, setEditMode] = useState(false);
-  const modalTitle = editMode ? "Editar Producto" : "Nuevo Producto";
+  // const [editMode, setEditMode] = useState(false);
+  // const modalTitle = editMode ? "Editar Producto" : "Nuevo Producto";
 
   const modalNewProductState = () => {
     setModalNewProduct(!modalNewProduct);
@@ -45,11 +45,11 @@ export const Admin = () => {
     }
   };
 
-  const handleEditProduct = () => {
-    //setSelectedProduct(product);
-    setEditMode(true);
-    setModalNewProduct(true);
-  };
+  // const handleEditProduct = () => {
+  //   setSelectedProduct(product);
+  //   setEditMode(true);
+  //   setModalNewProduct(true);
+  // };
 
   return (
     <>
@@ -76,9 +76,9 @@ export const Admin = () => {
                   <button onClick={() => removeProduct(product.id)}>
                     Eliminar
                   </button>
-                  <button onClick={() => handleEditProduct()}>
+                  {/* <button onClick={() => handleEditProduct()}>
                     editar
-                  </button>
+                  </button> */}
                 </td>
               </tr>
             ))}
@@ -88,7 +88,7 @@ export const Admin = () => {
         <Modal
           isOpen={modalNewProduct}
           onClose={modalNewProductState}
-          title={modalTitle}
+          title="New Product"
         >
           <form onSubmit={handleSubmit} className="modal-form">
             <div className="container-input">
@@ -116,8 +116,8 @@ export const Admin = () => {
             </div>
 
             <div className="button-form-user">
-              {/* <button type="submit">Crear</button> */}
-              <button type="submit">{editMode ? "Actualizar" : "Crear"}</button>
+              <button type="submit">Crear</button>
+              {/* <button type="submit">{editMode ? "Actualizar" : "Crear"}</button> */}
             </div>
           </form>
         </Modal>
