@@ -39,7 +39,7 @@ export const Login = () => {
             />
           </div>
           <div className="data-login">
-            <h2>Ingresa a el sitio</h2>
+            <h2>Enter the side</h2>
             <input
               type="text"
               placeholder="User"
@@ -55,10 +55,11 @@ export const Login = () => {
               required
             />
 
-            <button onClick={handleLogin}>Ingresar</button>
+            <button onClick={handleLogin}>Enter</button>
           </div>
         </div>
       </div>
     </>
   );
 };
+

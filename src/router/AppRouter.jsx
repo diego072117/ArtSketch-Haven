@@ -30,7 +30,7 @@ export const AppRouter = () => {
             isAdmin() ? (
               <Admin />
             ) : (
-              <>aceso denegado pa</>
+              <>denied access pa'</>
             )
           }
         />
