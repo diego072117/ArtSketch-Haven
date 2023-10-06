@@ -5,19 +5,19 @@
   flex-direction: column;
   margin: 2em;
 
-  .button-new-product{
+  .button-new-product {
     border: none;
     padding: 10px;
     background-color: lightgreen;
     border-radius: 10px;
-    cursor: pointer;  
+    cursor: pointer;
     margin: 1em;
   }
 
   .table-products {
     border-collapse: collapse;
     width: 100%;
-    max-width: 600px; 
+    max-width: 600px;
   }
 
   .table-products th,
@@ -36,15 +36,23 @@
   }
 
   .table-products button {
-    background-color: #db3434;
     color: white;
     border: none;
     padding: 5px 10px;
     cursor: pointer;
+    margin: 0 2px;
   }
-
-  .table-products button:hover {
-    background-color: #b92929;
+  .table-products .delete {
+    background-color: #db3434;
+    &:hover {
+      background-color: #b92929;
+    }
+  }
+  .table-products .update {
+    background-color: #007bff;
+    &:hover {
+      background-color: #0056b3;
+    }
   }
 }
 
@@ -91,4 +99,3 @@
     }
   }
 }
-

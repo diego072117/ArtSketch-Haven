@@ -6,16 +6,22 @@ import { Modal } from "../../components/Modal/Modal";
 
 export const Admin = () => {
   const [modalNewProduct, setModalNewProduct] = useState(false);
-  // const [editMode, setEditMode] = useState(false);
-  // const modalTitle = editMode ? "Editar Producto" : "Nuevo Producto";
+  const [modalUpdateProduct, setModalUpdateProduct] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   const modalNewProductState = () => {
     setModalNewProduct(!modalNewProduct);
-    setEditMode(false)
+  };
+
+  const handleEditProductState = (product) => {
+    setSelectedProduct(product);
+    setModalUpdateProduct(true);
   };
 
   const products = useSelector((state) => state.products.products);
-  const { newProduct, removeProduct, showAll } = useProductsActions();
+  const { newProduct, removeProduct, showAll, updateProduct } =
+    useProductsActions();
+
   useEffect(() => {
     showAll();
   }, [showAll]);
@@ -39,17 +45,19 @@ export const Admin = () => {
         description: description.toString(),
       };
 
-      newProduct(product);
+      if (selectedProduct) {
+        // Si se seleccionó un producto, entonces estamos en modo edición
+        updateProduct({ ...selectedProduct, ...product });
+      } else {
+        // Si no se seleccionó un producto, entonces estamos en modo creación
+        newProduct(product);
+      }
 
+      setSelectedProduct(false);
       setModalNewProduct(false);
+      setModalUpdateProduct(false);
     }
   };
-
-  // const handleEditProduct = () => {
-  //   setSelectedProduct(product);
-  //   setEditMode(true);
-  //   setModalNewProduct(true);
-  // };
 
   return (
     <>
@@ -61,9 +69,9 @@ export const Admin = () => {
           <thead>
             <tr>
               <th>ID</th>
-              <th>Name</th>
-              <th>Price</th>
-              <th>Action</th>
+              <th>Nombre</th>
+              <th>Precio</th>
+              <th>Acción</th>
             </tr>
           </thead>
           <tbody>
@@ -73,12 +81,18 @@ export const Admin = () => {
                 <td>{product.name}</td>
                 <td>{product.price}</td>
                 <td>
-                  <button onClick={() => removeProduct(product.id)}>
+                  <button
+                    className="update"
+                    onClick={() => handleEditProductState(product)}
+                  >
+                    Editar
+                  </button>
+                  <button
+                    className="delete"
+                    onClick={() => removeProduct(product.id)}
+                  >
                     Eliminar
                   </button>
-                  {/* <button onClick={() => handleEditProduct()}>
-                    editar
-                  </button> */}
                 </td>
               </tr>
             ))}
@@ -86,38 +100,64 @@ export const Admin = () => {
         </table>
 
         <Modal
-          isOpen={modalNewProduct}
-          onClose={modalNewProductState}
-          title="New Product"
+          isOpen={modalNewProduct || modalUpdateProduct}
+          onClose={() => {
+            setModalNewProduct(false);
+            setModalUpdateProduct(false);
+            setSelectedProduct(null);
+          }}
+          title={selectedProduct ? "Editar Producto" : "Nuevo Producto"}
         >
           <form onSubmit={handleSubmit} className="modal-form">
             <div className="container-input">
-              <label>Name: </label>
-              <input name="name" type="text" placeholder="Nombre" required/>
+              <label>Nombre: </label>
+              <input
+                name="name"
+                type="text"
+                placeholder="Nombre"
+                required
+                defaultValue={selectedProduct ? selectedProduct.name : ""}
+              />
             </div>
             <div className="container-input">
-              <label htmlFor="">Price: </label>
-              <input name="price" type="text" placeholder="precio" required />
+              <label>Precio: </label>
+              <input
+                name="price"
+                type="text"
+                placeholder="precio"
+                required
+                defaultValue={selectedProduct ? selectedProduct.price : ""}
+              />
             </div>
 
             <div className="container-input">
-              <label htmlFor="">Url IMG: </label>
-              <input name="img" type="text" placeholder="url" required />
+              <label>Url IMG: </label>
+              <input
+                name="img"
+                type="text"
+                placeholder="url"
+                required
+                defaultValue={selectedProduct ? selectedProduct.img : ""}
+              />
             </div>
 
             <div className="container-input">
-              <label htmlFor="">Description </label>
+              <label>Descripcion </label>
               <input
                 name="description"
                 type="text"
                 placeholder="description"
                 required
+                defaultValue={
+                  selectedProduct ? selectedProduct.description : ""
+                }
               />
             </div>
 
             <div className="button-form-user">
-              <button type="submit">Crear</button>
-              {/* <button type="submit">{editMode ? "Actualizar" : "Crear"}</button> */}
+              <button type="submit">
+                {selectedProduct ? "Actualizar" : "Crear"}
+              </button>
             </div>
           </form>
         </Modal>
