@@ -55,15 +55,15 @@ export const Admin = () => {
     <>
       <div className="containter-table">
         <button className="button-new-product" onClick={modalNewProductState}>
-          New user
+          New Product
         </button>
         <table className="table-products">
           <thead>
             <tr>
               <th>ID</th>
-              <th>Nombre</th>
-              <th>Precio</th>
-              <th>Acción</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -74,7 +74,7 @@ export const Admin = () => {
                 <td>{product.price}</td>
                 <td>
                   <button onClick={() => removeProduct(product.id)}>
-                    Agotado
+                    Eliminar
                   </button>
                   <button onClick={() => handleEditProduct()}>
                     editar
@@ -92,11 +92,11 @@ export const Admin = () => {
         >
           <form onSubmit={handleSubmit} className="modal-form">
             <div className="container-input">
-              <label>Nombre: </label>
-              <input name="name" type="text" placeholder="Nombre" required />
+              <label>Name: </label>
+              <input name="name" type="text" placeholder="Nombre" required/>
             </div>
             <div className="container-input">
-              <label htmlFor="">Precio: </label>
+              <label htmlFor="">Price: </label>
               <input name="price" type="text" placeholder="precio" required />
             </div>
 
@@ -106,7 +106,7 @@ export const Admin = () => {
             </div>
 
             <div className="container-input">
-              <label htmlFor="">Descripcion </label>
+              <label htmlFor="">Description </label>
               <input
                 name="description"
                 type="text"
