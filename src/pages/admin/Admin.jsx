@@ -6,9 +6,12 @@ import { Modal } from "../../components/Modal/Modal";
 
 export const Admin = () => {
   const [modalNewProduct, setModalNewProduct] = useState(false);
+  const [editMode, setEditMode] = useState(false);
+  const modalTitle = editMode ? "Editar Producto" : "Nuevo Producto";
 
   const modalNewProductState = () => {
     setModalNewProduct(!modalNewProduct);
+    setEditMode(false)
   };
 
   const products = useSelector((state) => state.products.products);
@@ -42,6 +45,12 @@ export const Admin = () => {
     }
   };
 
+  const handleEditProduct = () => {
+    //setSelectedProduct(product);
+    setEditMode(true);
+    setModalNewProduct(true);
+  };
+
   return (
     <>
       <div className="containter-table">
@@ -67,6 +76,9 @@ export const Admin = () => {
                   <button onClick={() => removeProduct(product.id)}>
                     Agotado
                   </button>
+                  <button onClick={() => handleEditProduct()}>
+                    editar
+                  </button>
                 </td>
               </tr>
             ))}
@@ -76,7 +88,7 @@ export const Admin = () => {
         <Modal
           isOpen={modalNewProduct}
           onClose={modalNewProductState}
-          title="New Product"
+          title={modalTitle}
         >
           <form onSubmit={handleSubmit} className="modal-form">
             <div className="container-input">
@@ -104,7 +116,8 @@ export const Admin = () => {
             </div>
 
             <div className="button-form-user">
-              <button type="submit">Crear</button>
+              {/* <button type="submit">Crear</button> */}
+              <button type="submit">{editMode ? "Actualizar" : "Crear"}</button>
             </div>
           </form>
         </Modal>
@@ -112,16 +125,3 @@ export const Admin = () => {
     </>
   );
 };
-{
-  /* <form onSubmit={handleSubmit}>
-<label>Nombre</label>
-<input type="text" name="name" placeholder="name" />
-<label>Precio</label>
-<input type="text" name="price" placeholder="price" />
-<label>Url IMG</label>
-<input type="text" name="img" placeholder="img" />
-<label>Descriotion</label>
-<input type="text" name="description" placeholder="desc" />
-<button type="submit">New Product</button>
-</form> */
-}
