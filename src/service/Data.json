@@ -84,13 +84,15 @@
   "users":[
      {
         "username":"Admin",
-        "password":"12345678Aa.",
-        "role":"admin"
+        "password":"12345678aA.",
+        "role":"admin",
+        "avatar": "https://i.pinimg.com/564x/3a/49/ff/3a49ff906cdbd7b5234a60f8e2017cac.jpg"
      },
      {
         "username":"Usuario",
-        "password":"12345678Aa.",
-        "role":"user"
+        "password":"12345678aA.",
+        "role":"user",
+        "avatar": "https://i.pinimg.com/564x/5f/c2/cc/5fc2cc3504938dc1456484698334e389.jpg"
      }
   ]
 }

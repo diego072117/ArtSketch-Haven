@@ -10,8 +10,7 @@ const MAX_CHARACTERS_NAME = 11;
 
 export const Products = () => {
   const products = useSelector((state) => state.products.products);
-
-  // Mostrar todos los productos al montar el componente
+  
   const { showAll } = useProductsActions();
   useEffect(() => {
     showAll();

@@ -1,11 +1,11 @@
-import { products } from "../../service/Data.json";
 import { useParams } from "react-router-dom";
-import "./Module.scss";
 import { ScrollToTop } from "../../hooks/ScrollToTop";
+import { useSelector } from "react-redux";
+import "./Module.scss";
 
 export const DetailsProduct = () => {
   const { id } = useParams();
-
+  const products = useSelector((state) => state.products.products);
   const product = products.find((products) => products.id === parseInt(id));
 
   return (
