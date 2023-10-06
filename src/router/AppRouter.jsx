@@ -6,8 +6,16 @@ import { Footer } from "../components/Footer/Footer";
 import { DetailsProduct } from "../pages/detailsProduct/DetailsProduct";
 import { Login } from "../pages/login/Login";
 import { Admin } from "../pages/admin/Admin";
+import { useSelector } from "react-redux";
 
 export const AppRouter = () => {
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const user = useSelector((state) => state.auth.user);
+
+  const isAdmin = () => {
+    // Verifica si el usuario está autenticado y tiene el rol de "admin"
+    return isAuthenticated && user && user.role === "admin";
+  };
   return (
     <>
       <Nav />
@@ -16,7 +24,16 @@ export const AppRouter = () => {
         <Route path="/products" element={<Products />} />
         <Route path="/details-product/:id" element={<DetailsProduct />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/dashAdmin" element={<Admin />} />
+        <Route
+          path="/dashAdmin"
+          element={
+            isAdmin() ? (
+              <Admin />
+            ) : (
+              <>denied access pa'</>
+            )
+          }
+        />
       </Routes>
       <Footer />
     </>

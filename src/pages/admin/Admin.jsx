@@ -1,26 +1,60 @@
 import { useSelector } from "react-redux";
 import { useProductsActions } from "../../hooks/useProductsActions";
-import { useEffect } from "react";
-import { showAllProducts } from "../../store/products/slice"; // Asegúrate de importar showAllProducts desde el slice
+import { useEffect, useState } from "react";
+import "./Module.scss";
+import { Modal } from "../../components/Modal/Modal";
 
 export const Admin = () => {
+  const [modalNewProduct, setModalNewProduct] = useState(false);
+
+  const modalNewProductState = () => {
+    setModalNewProduct(!modalNewProduct);
+  };
+
   const products = useSelector((state) => state.products.products);
-  //const visibleProducts = products.filter((product) => product.isVisible);
-  const { removeProduct, showAll } = useProductsActions();
+  const { newProduct, removeProduct, showAll } = useProductsActions();
   useEffect(() => {
-    showAll()
+    showAll();
   }, [showAll]);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    const name = formData.get("name");
+    const price = formData.get("price");
+    const img = formData.get("img");
+    const description = formData.get("description");
+
+    // Asegúrate de que name, price, img y description no sean null o undefined
+    if (name && price && img && description) {
+      const product = {
+        name: name.toString(),
+        price: price.toString(),
+        img: img.toString(),
+        description: description.toString(),
+      };
+
+      newProduct(product);
+
+      setModalNewProduct(false);
+    }
+  };
 
   return (
     <>
-      <div>
-        <table>
+      <div className="containter-table">
+        <button className="button-new-product" onClick={modalNewProductState}>
+          New Product
+        </button>
+        <table className="table-products">
           <thead>
             <tr>
               <th>ID</th>
-              <th>Nombre</th>
-              <th>Precio</th>
-              <th>Acción</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -31,13 +65,52 @@ export const Admin = () => {
                 <td>{product.price}</td>
                 <td>
                   <button onClick={() => removeProduct(product.id)}>
-                    Agotado
+                    Eliminar
+                  </button>
+                  <button onClick={() => handleEditProduct(product)}>
+                    Editar
                   </button>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
+
+        <Modal
+          isOpen={modalNewProduct}
+          onClose={modalNewProductState}
+          title="New Product"
+        >
+          <form onSubmit={handleSubmit} className="modal-form">
+            <div className="container-input">
+              <label>Name: </label>
+              <input name="name" type="text" placeholder="Nombre" required/>
+            </div>
+            <div className="container-input">
+              <label htmlFor="">Price: </label>
+              <input name="price" type="text" placeholder="precio" required />
+            </div>
+
+            <div className="container-input">
+              <label htmlFor="">Url IMG: </label>
+              <input name="img" type="text" placeholder="url" required />
+            </div>
+
+            <div className="container-input">
+              <label htmlFor="">Description </label>
+              <input
+                name="description"
+                type="text"
+                placeholder="description"
+                required
+              />
+            </div>
+
+            <div className="button-form-user">
+              <button type="submit">Create</button>
+            </div>
+          </form>
+        </Modal>
       </div>
     </>
   );

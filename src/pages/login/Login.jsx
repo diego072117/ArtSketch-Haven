@@ -1,33 +1,32 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { users } from "../../service/Data.json";
+import { useAuthActions } from "../../hooks/useAuthActions";
 import "./Module.scss";
-import Swal from "sweetalert2";
 
 export const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const { login } = useAuthActions();
 
   const handleLogin = () => {
-    const validateUser = users.find(
-      (user) => user.username === username && user.password === password
-    );
+    // Llama a la función login con las credenciales proporcionadas
+    login({ username, password });
+  };
 
-    if (validateUser) {
-      if (validateUser.role === "admin") {
+  // Obtener el estado autenticado y el usuario desde el estado global
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const user = useSelector((state) => state.auth.user);
+  useEffect(() => {
+    if (isAuthenticated && user) {
+      if (user.role === "admin") {
         navigate("/dashAdmin");
-      } else if (validateUser.role === "user") {
+      } else if (user.role === "user") {
         navigate("/products");
       }
-    } else {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Credenciales incorrectas!",
-      });
     }
-  };
+  }, [isAuthenticated, user,]);
 
   return (
     <>
@@ -40,7 +39,7 @@ export const Login = () => {
             />
           </div>
           <div className="data-login">
-            <h2>Ingresa a el sitio</h2>
+            <h2>Enter the side</h2>
             <input
               type="text"
               placeholder="User"
@@ -56,10 +55,11 @@ export const Login = () => {
               required
             />
 
-            <button onClick={handleLogin}>Ingresar</button>
+            <button onClick={handleLogin}>Enter</button>
           </div>
         </div>
       </div>
     </>
   );
 };
+
